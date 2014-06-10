@@ -4,6 +4,10 @@
 	</head>
 	<body>
 		<h1>Contacts</h1>
-		<p></p>
+		<ul>
+			<% @contacts.each do |contact| %>
+			<li><%= contact.first_name %> <%= contact.last_name %></li>
+			<% end %>
+		</u>
 	</body>
 </html>
