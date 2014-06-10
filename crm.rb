@@ -4,9 +4,9 @@ require_relative 'rolodex'
 require 'sinatra'
 
 @@rolodex = Rolodex.new
-
+$title = "Rolodexer"
 get '/' do
-	@crm_app_name = "Roladexer" 
+	@crm_app_name = "Rolodexer" 
 	erb :index
 end
 
