@@ -6,17 +6,39 @@ body {
 
 a {
 	text-decoration: none;
-	color: red;
+	color: #676666;
 }
 
 a:hover {
-	color:blue;
+	color:red;
 }
 
 li {
 	list-style: none;
+	color: #676666;
+}
+h1 {
+	color: #676666;
+	text-align: center;
 }
 
+.main-menu{
+	border: 1px  solid black;
+	margin: 20px auto;
+	width: 50%;
+}
+
+.main-menu h2 {
+	text-align: center;
+	color: #676666;
+}
+
+.buttons li {
+	border: 1px solid #676666;
+	text-align: center;
+	margin: 0 auto;
+	width: 100px;
+}
 
 .navbar {
 	position: relative;
