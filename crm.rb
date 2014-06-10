@@ -11,11 +11,6 @@ get '/' do
 end
 
 get '/contacts' do
-	@contacts = []
-	@contacts << Contact.new("Brandon", "Craft", "email", "note")
-	@contacts << Contact.new("Ford", "Ford", "email", "note")
-	@contacts << Contact.new("Tester", "McGee", "email", "note")
-	
 	erb :contacts
 end
 
