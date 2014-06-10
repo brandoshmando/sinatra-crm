@@ -27,7 +27,7 @@ get 'contacts/:id/edit' do
 end
 
 post '/contacts' do
-	attributes = params.only(:first_name, :last_name, :email, :notes)
-	contact = Contact.new(attributes)
+	contact = Contact.new(params[:first_name],params[:last_name],params[:email],params[:note])
 	@@rolodex.add(contact)
+	redirect to('/contacts')
 end
