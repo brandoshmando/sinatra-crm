@@ -30,7 +30,7 @@ table {
 
 table, th, td {
   border: 1px solid #676666;
-}
+  }
 
 th {
 	background-color: #676666;
@@ -40,6 +40,16 @@ th {
 td {
 	color: #676666;
 	text-align: right;
+}
+
+.contact-container {
+	width: 0 auto;
+	margin: 20px;
+}
+
+.contact {
+	margin: 20px;
+	float: left;
 }
 
 .data {
@@ -59,7 +69,7 @@ td {
 }
 
 .buttons ul {
-	padding:0;
+	padding: 0;
 }
 
 .buttons li {

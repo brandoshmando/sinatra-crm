@@ -4,7 +4,10 @@ require_relative 'rolodex'
 require 'sinatra'
 
 @@rolodex = Rolodex.new
-$title = "Rolodexer"
+@@rolodex.add(Contact.new("Brandon", "Craft", "brancraft@gmail.com", "Note"))
+@@rolodex.add(Contact.new("Rob", "Ford", "crack_lover@shaw.ca", "He craaaay....."))
+@@rolodex.add(Contact.new("Brandon", "Craft", "dublicate@example.com", "Lorem ipsum dolar simut."))
+@@rolodex.add(Contact.new("Tester", "McGee", "tester_mcgee@gmail.com", "Lorem ipsum dolar simut."))
 get '/' do
 	@crm_app_name = "Rolodexer" 
 	erb :index
