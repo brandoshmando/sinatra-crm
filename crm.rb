@@ -21,7 +21,8 @@ get '/contacts/new' do
 	erb :new_contact
 end
 
-get 'contacts/:id' do
+get '/contacts/:id' do
+	@contact = @@rolodex.find_by_id(params[:id].to_i)
 	erb :view_contact
 end
 

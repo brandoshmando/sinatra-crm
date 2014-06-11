@@ -1,0 +1,28 @@
+<h1><%= @contact.first_name %> <%= @contact.last_name %></h1>
+<div class="contact-container">
+	<table class="contact">
+		<thead>
+			<tr>
+				<th colspan="2"><%= @contact.first_name %> <%= @contact.last_name %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>First Name: </td>
+				<td class="data"><%= @contact.first_name %></td>
+			</tr>
+			<tr>
+				<td>Last Name: </td>
+				<td class="data"><%= @contact.last_name %></td>
+			</tr>
+			<tr>
+				<td>Email: </td>
+				<td class="data"><%= @contact.email %></td>
+			</tr>
+			<tr>
+				<td>Note: </td>
+				<td class="data"><%= @contact.note %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

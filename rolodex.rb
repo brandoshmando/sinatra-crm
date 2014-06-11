@@ -10,4 +10,17 @@ class Rolodex
 		@contacts << contact
 		@counter += 1
 	end
+
+	def find_by_id(id)
+		@contacts.find {|contact| contact.id == id}
+	end
+
+	# def search(search_term)
+	# 	results = []
+	# 	search = [:first_name, :last_name, :email, :note, :id]
+	# 	@contacts.each do |contact|
+	# 		search.each do |method|
+	# 			results << contact if contact.send(method) == search_term
+	# 		end
+	# 	end
 end
