@@ -48,7 +48,7 @@ form {
 	margin: 0 auto;
 	position: relative;
 	width: 400px;
-	height: 450px;
+	height: 400px;
 	font-family: 'Josefin Slab', serif;
 	font-size:14px;
 	font-style: italic;
@@ -160,5 +160,9 @@ textarea:focus, input:focus {
 
 .navbar a:hover {
 	color: red;
+}
+
+.graphic a:hover {
+	color: white;
 }
 
