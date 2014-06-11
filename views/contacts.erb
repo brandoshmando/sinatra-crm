@@ -3,7 +3,6 @@
 <% @@rolodex.contacts.each do |contact| %>
 
 <table>
-	<caption></caption>
 	<thead>
 		<tr>
 			<th colspan="2"><%= contact.first_name%> <%=contact.last_name%></th>
@@ -11,10 +10,20 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><%= contact.first_name %></td>
+			<td>First Name: </td>
+			<td class="data"><%= contact.first_name %></td>
+		</tr>
+		<tr>
+			<td class="data">Last Name: </td>
 			<td><%= contact.last_name %></td>
-			<td><%= contact.email %></td>
-			<td><%= contact.note %></td>
+		</tr>
+		<tr>
+			<td>Email: </td>
+			<td class="data"><%= contact.email %></td>
+		</tr>
+		<tr>
+			<td>Note: </td>
+			<td class="data"><%= contact.note %></td>
 		</tr>
 	</tbody>
 </table>
