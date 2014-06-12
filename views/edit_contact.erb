@@ -1,0 +1,35 @@
+<h1>Edit a contact</h1>
+
+<div class="contact-container">
+	<form class="edit" action="/contacts/<%= @contact.id %>" method="post">
+		 <input type="hidden" name="_method" value="put">
+		<table class="contact">
+			<thead>
+				<tr>
+					<th colspan="2"><%= @contact.first_name %> <%= @contact.last_name %></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>First Name: </td>
+					<td class="data"><input type="text" name="first_name" value=<%= @contact.first_name %>></td>
+				</tr>
+				<tr>
+					<td>Last Name: </td>
+					<td class="data"><input type="text" name="last_name" value=<%= @contact.last_name %>></td>
+				</tr>
+				<tr>
+					<td>Email: </td>
+					<td class="data"><input type="text" name="email" value=<%= @contact.email %>></td>
+				</tr>
+				<tr>
+					<td>Note: </td>
+					<td class="data"><input type="text" name="note" value=<%= @contact.note %>></td>
+				</tr>
+				<tr >
+					<input type="submit" name="Submit your changes">
+				</tr>	
+			</tbody>
+		</table>
+	</form>
+</div>

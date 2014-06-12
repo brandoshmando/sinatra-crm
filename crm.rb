@@ -8,34 +8,53 @@ require 'sinatra'
 @@rolodex.add(Contact.new("Rob", "Ford", "crack_lover@shaw.ca", "He craaaay....."))
 @@rolodex.add(Contact.new("Brandon", "Craft", "dublicate@example.com", "Lorem ipsum dolar simut."))
 @@rolodex.add(Contact.new("Tester", "McGee", "tester_mcgee@gmail.com", "Lorem ipsum dolar simut."))
+#Route for index.html
 get '/' do
 	@crm_app_name = "Rolodexer" 
 	erb :index
 end
-
+#Route for displaying all contacts
 get '/contacts' do
 	erb :contacts
 end
-
+#Route to form for adding a contact
 get '/contacts/new' do
 	erb :new_contact
 end
-
+#Route for displaying a particular contact
 get '/contacts/:id' do
 	@contact = @@rolodex.find_by_id(params[:id].to_i)
-		if @contact
-    erb :show_contact
+	if @contact
+    erb :view_contact
   else
     raise Sinatra::NotFound
   end
 end
-
-get 'contacts/:id/edit' do
-	erb :edit
+#Route to edit a particular contact
+get '/contacts/:id/edit' do
+	@contact = @@rolodex.find_by_id(params[:id].to_i)
+	if @contact
+    erb :edit_contact
+  else
+    raise Sinatra::NotFound
+  end
 end
-
+#Route for posting/adding a new contact to rolodex
 post '/contacts' do
 	contact = Contact.new(params[:first_name],params[:last_name],params[:email],params[:note])
 	@@rolodex.add(contact)
 	redirect to('/contacts')
+end
+#Route to put new values to a particular contact within the rolodex
+put '/contacts/:id' do
+	@contact = @@rolodex.find_by_id(params[:id].to_i)
+	if @contact
+		@contact.first_name = params[:first_name]
+		@contact.last_name = params[:last_name]
+		@contact.email = params[:email]
+		@contact.note = params[:note]
+		redirect to('/contacts')
+	else
+		raise Sinatra::NotFound
+	end
 end
