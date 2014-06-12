@@ -48,7 +48,9 @@ td {
 	text-align: right;
 }
 
-
+input[type="checkbox"] {
+	
+}
 
 /* Form styling for adding a contact */
 

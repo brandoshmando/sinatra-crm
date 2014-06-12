@@ -43,7 +43,14 @@ end
 #Route for posting/adding a new contact to rolodex
 post '/contacts' do
 	puts params
-	contact = Contact.new(params[:first_name],params[:last_name],params[:email],params[:note], params[:personal])
+	contact = Contact.new(
+		params[:first_name],
+		params[:last_name],
+		params[:email],
+		params[:note],
+		params[:personal],
+		params[:business]
+	)
 	@@rolodex.add(contact)
 	redirect to('/contacts')
 end
