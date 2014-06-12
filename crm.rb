@@ -2,12 +2,13 @@ require_relative 'contact'
 require_relative 'rolodex'
 
 require 'sinatra'
+require 'pry'
 
 @@rolodex = Rolodex.new
-@@rolodex.add(Contact.new("Brandon", "Craft", "brancraft@gmail.com", "Note"))
-@@rolodex.add(Contact.new("Rob", "Ford", "crack_lover@shaw.ca", "He craaaay....."))
-@@rolodex.add(Contact.new("Brandon", "Craft", "dublicate@example.com", "Lorem ipsum dolar simut."))
-@@rolodex.add(Contact.new("Tester", "McGee", "tester_mcgee@gmail.com", "Lorem ipsum dolar simut."))
+@@rolodex.add(Contact.new("Brandon", "Craft", "brancraft@gmail.com", "Note", false, false))
+@@rolodex.add(Contact.new("Rob", "Ford", "crack_lover@shaw.ca", "He craaaay.....", false, false))
+@@rolodex.add(Contact.new("Brandon", "Craft", "dublicate@example.com", "Lorem ipsum dolar simut.", false, false))
+@@rolodex.add(Contact.new("Tester", "McGee", "tester_mcgee@gmail.com", "Lorem ipsum dolar simut.", false, false))
 #Route for index.html
 get '/' do
 	@crm_app_name = "Rolodexer" 
@@ -41,7 +42,8 @@ get '/contacts/:id/edit' do
 end
 #Route for posting/adding a new contact to rolodex
 post '/contacts' do
-	contact = Contact.new(params[:first_name],params[:last_name],params[:email],params[:note])
+	puts params
+	contact = Contact.new(params[:first_name],params[:last_name],params[:email],params[:note], params[:personal])
 	@@rolodex.add(contact)
 	redirect to('/contacts')
 end
@@ -61,7 +63,6 @@ end
 #Route to delete a particular contact
 
 delete '/contacts/:id' do
-	puts params
 	@contact = @@rolodex.find_by_id(params[:id].to_i)
 	if @contact
 		@@rolodex.delete(@contact)

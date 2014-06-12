@@ -5,7 +5,7 @@
 	<table class="contact">
 		<thead>
 			<tr>
-				<th colspan="2"><a href="/contacts/<%= contact.id %>"><%= contact.first_name%> <%=contact.last_name%></a><a class="edit-link"href='/contacts/<%= contact.id %>/edit'>//Edit</a></th>
+				<th colspan="2"><a href="/contacts/<%= contact.id %>"><%= contact.first_name%> <%=contact.last_name%></a><a class="edit-link" href='/contacts/<%= contact.id %>/edit'>//Edit</a></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,6 +24,10 @@
 			<tr>
 				<td>Note: </td>
 				<td class="data"><%= contact.note %></td>
+			</tr>
+			<tr>
+				<td>Created:</td>
+				<td class="data"><%= contact.time_format(contact.time) %></td>
 			</tr>
 		</tbody>
 	</table>
