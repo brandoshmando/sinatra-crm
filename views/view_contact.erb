@@ -25,4 +25,8 @@
 			</tr>
 		</tbody>
 	</table>
+	<form action='/contacts/<%= @contact.id %>' method="post">
+		<input type="hidden" name="_method" value="delete">
+		<button class="btn-delete" type="submit" name="Delete Contact">Delete Contact</button>
+	</form>
 </div>

@@ -3,7 +3,7 @@
 <div class="contact-container">
 	<form class="edit" action="/contacts/<%= @contact.id %>" method="post">
 		 <input type="hidden" name="_method" value="put">
-		<table class="contact">
+		<table class="edit-contact">
 			<thead>
 				<tr>
 					<th colspan="2"><%= @contact.first_name %> <%= @contact.last_name %></th>
@@ -11,23 +11,23 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>First Name: </td>
-					<td class="data"><input type="text" name="first_name" value=<%= @contact.first_name %>></td>
+					<td><label for="first">First Name: </label></td>
+					<td class="data"><input id="first" type="text" name="first_name" value=<%= @contact.first_name %>></td>
 				</tr>
 				<tr>
-					<td>Last Name: </td>
-					<td class="data"><input type="text" name="last_name" value=<%= @contact.last_name %>></td>
+					<td><label for="last">Last Name: </label></td>
+					<td class="data"><input id="last" type="text" name="last_name" value=<%= @contact.last_name %>></td>
 				</tr>
 				<tr>
-					<td>Email: </td>
-					<td class="data"><input type="text" name="email" value=<%= @contact.email %>></td>
+					<td><label for="email">Email: </label></td>
+					<td class="data"><input id="email" type="text" name="email" value=<%= @contact.email %>></td>
 				</tr>
 				<tr>
-					<td>Note: </td>
-					<td class="data"><input type="text" name="note" value=<%= @contact.note %>></td>
+					<td><label for="note">Note: </label></td>
+					<td class="data"><input id="note" type="text" name="note" value=<%= @contact.note %>></td>
 				</tr>
 				<tr >
-					<input type="submit" name="Submit your changes">
+					<td id ="submit" colspan="2"><input type="submit" name="Submit your changes"></td>
 				</tr>	
 			</tbody>
 		</table>

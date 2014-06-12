@@ -15,6 +15,10 @@ class Rolodex
 		@contacts.find {|contact| contact.id == id}
 	end
 
+	def delete(contact)
+		@contacts.delete(contact)
+	end
+
 	# def search(search_term)
 	# 	results = []
 	# 	search = [:first_name, :last_name, :email, :note, :id]

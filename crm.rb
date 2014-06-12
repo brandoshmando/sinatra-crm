@@ -58,3 +58,23 @@ put '/contacts/:id' do
 		raise Sinatra::NotFound
 	end
 end
+#Route to delete a particular contact
+
+delete '/contacts/:id' do
+	puts params
+	@contact = @@rolodex.find_by_id(params[:id].to_i)
+	if @contact
+		@@rolodex.delete(@contact)
+		redirect to('/contacts')
+	else
+		raise Sinatra::NotFound
+	end
+end
+
+
+
+
+
+
+
+

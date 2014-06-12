@@ -46,6 +46,7 @@ td {
 
 .add {
 	margin: 0 auto;
+	padding:1em;
 	position: relative;
 	width: 400px;
 	height: 400px;
@@ -88,6 +89,7 @@ td {
 
 .edit {
 	margin: 0 auto;
+	padding: 1em;
 	position: relative;
 	width: 400px;
 	height: 400px;
@@ -100,7 +102,7 @@ td {
 }
 
 .edit input {
-	width: 375px;
+	width: 200px;
 	margin: 10px;
 	display: block;
 	border: 1px solid #676666;
@@ -122,6 +124,9 @@ td {
 
 }
 
+.edit input[type=submit] {
+	margin: 0 auto;
+}
 
 .contact-container {
 	width: 0 auto;
@@ -202,4 +207,4 @@ td {
 .graphic a:hover {
 	color: white;
 }
-
+.btn-delete
