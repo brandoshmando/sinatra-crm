@@ -27,7 +27,7 @@ get '/contacts/:id' do
 	if @contact
     erb :view_contact
   else
-    raise Sinatra::NotFound
+    erb :error
   end
 end
 #Route to edit a particular contact
@@ -67,7 +67,7 @@ delete '/contacts/:id' do
 		@@rolodex.delete(@contact)
 		redirect to('/contacts')
 	else
-		raise Sinatra::NotFound
+		erb :error
 	end
 end
 

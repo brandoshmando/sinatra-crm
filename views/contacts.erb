@@ -5,7 +5,7 @@
 	<table class="contact">
 		<thead>
 			<tr>
-				<th colspan="2"><%= contact.first_name%> <%=contact.last_name%></th>
+				<th colspan="2"><a href="/contacts/<%= contact.id %>"><%= contact.first_name%> <%=contact.last_name%></a><a class="edit-link"href='/contacts/<%= contact.id %>/edit'>//Edit</a></th>
 			</tr>
 		</thead>
 		<tbody>

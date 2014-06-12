@@ -28,6 +28,10 @@ table {
   margin: 0 auto;
 }
 
+table a {
+	color:white;
+}
+
 table, th, td {
   border: 1px solid #676666;
   }
@@ -35,12 +39,16 @@ table, th, td {
 th {
 	background-color: #676666;
 	color: white;
+	font-style: italic;
+	margin: 0 auto;
 }
 
 td {
 	color: #676666;
 	text-align: right;
 }
+
+
 
 /* Form styling for adding a contact */
 
@@ -207,4 +215,11 @@ td {
 .graphic a:hover {
 	color: white;
 }
-.btn-delete
+
+.edit-link {
+	color: white;
+	padding-left: 10px;
+	font-size: .2em;
+	font-style: 0;
+	margin: 0 1em;
+}
