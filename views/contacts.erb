@@ -1,6 +1,6 @@
 <h1>Contacts</h1>
 
-<% @@rolodex.contacts.each do |contact| %>
+<% @contacts.each do |contact| %>
 <div class="contact-container">
 	<table class="contact">
 		<thead>
@@ -27,7 +27,7 @@
 			</tr>
 			<tr>
 				<td>Created:</td>
-				<td class="data"><%= contact.time_format(contact.time) %></td>
+				<td class="data"><%= contact.created_at %></td>
 			</tr>
 		</tbody>
 	</table>
