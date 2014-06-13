@@ -54,6 +54,10 @@ end
 get '/contacts/new' do
 	erb :new_contact
 end
+#Route to search for a particular contact
+get '/contacts/search' do
+	erb :search
+end
 #Route for displaying a particular contact
 get '/contacts/:id' do
 	@contact = Contact.get(params[:id].to_i)
@@ -79,13 +83,16 @@ end
 #Route to put new values to a particular contact within the rolodex
 put '/contacts/:id' do
 	@contact = Contact.get(params[:id].to_i)
-	@contact.update(
-		:first_name => params[:first_name],
-		:last_name => params[:last_name],
-		:email => params[:email],
-		:note => params[:note]
-		)
-		redirect to('/contacts/#{params[:id]')
+		if @contact
+			@contact.update(
+			:first_name => params[:first_name],
+			:last_name => params[:last_name],
+			:email => params[:email],
+			:note => params[:note])
+		else
+			erb :error
+		end
+		redirect to("/contacts/#{@contact.id}")
 	end
 #Route to delete a particular contact
 
@@ -94,11 +101,3 @@ delete '/contacts/:id' do
 	@contact.destroy
 	redirect to('/contacts')
 end
-
-
-
-
-
-
-
-
