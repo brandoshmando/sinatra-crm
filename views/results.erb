@@ -1,0 +1,35 @@
+<h1>Search Results</h1>
+
+<% @results.each do |result| %>
+<div class="contact-container">
+	<table class="contact">
+		<thead>
+			<tr>
+				<th colspan="2"><a href="/contacts/<%= result.id %>"><%= result.first_name%> <%=result.last_name%></a><a class="edit-link" href='/results/<%= result.id %>/edit'>//Edit</a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>First Name: </td>
+				<td class="data"><%= result.first_name %></td>
+			</tr>
+			<tr>
+				<td>Last Name: </td>
+				<td class="data"><%= result.last_name %></td>
+			</tr>
+			<tr>
+				<td>Email: </td>
+				<td class="data"><%= result.email %></td>
+			</tr>
+			<tr>
+				<td>Note: </td>
+				<td class="data"><%= result.note %></td>
+			</tr>
+			<tr>
+				<td>Created:</td>
+				<td class="data"><%= result.created_at %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<% end %>

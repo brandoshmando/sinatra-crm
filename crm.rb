@@ -24,6 +24,10 @@ class Contact
 		return "#{time.month}/#{time.month}/#{time.year}"
 	end
 
+	def self.search(params)
+		Contact.all(:first_name => params) |  Contact.all(:last_name => params) | Contact.all(:email => params) |	Contact.all(:note => params) | Contact.all(:id => params)
+	end
+
 	def category_format
 		if :personal == "true" && :business == "true"
 			return "Personal/Business Aquaintance"
@@ -57,6 +61,11 @@ end
 #Route to search for a particular contact
 get '/contacts/search' do
 	erb :search
+end
+#Route for displaying search results
+get '/contacts/search/results' do	
+	@results = Contact.search(params[:search])
+	erb :results
 end
 #Route for displaying a particular contact
 get '/contacts/:id' do
