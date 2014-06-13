@@ -3,6 +3,10 @@ require_relative 'rolodex'
 
 require 'sinatra'
 require 'pry'
+require 'data_mapper'
+
+DataMapper.setup(:default, 'sqlite3:database.sqlite3')
+
 
 @@rolodex = Rolodex.new
 @@rolodex.add(Contact.new("Brandon", "Craft", "brancraft@gmail.com", "Note", false, false))
