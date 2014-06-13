@@ -66,8 +66,7 @@ get '/contacts/:id/edit' do
   end
 #Route for posting/adding a new contact to rolodex
 post '/contacts' do
-	@contact = Contact.get(params[:id])
-	@contact.update(
+	@contact = Contact.create(
 		:first_name => params[:first_name],
 		:last_name => params[:last_name],
 		:email => params[:email],
@@ -80,24 +79,20 @@ end
 #Route to put new values to a particular contact within the rolodex
 put '/contacts/:id' do
 	@contact = Contact.get(params[:id].to_i)
-	@contact.update!(
+	@contact.update(
 		:first_name => params[:first_name],
 		:last_name => params[:last_name],
 		:email => params[:email],
 		:note => params[:note]
 		)
-		redirect to('/contacts')
+		redirect to('/contacts/#{params[:id]')
 	end
 #Route to delete a particular contact
 
 delete '/contacts/:id' do
-	@contact = @@rolodex.find_by_id(params[:id].to_i)
-	if @contact
-		@@rolodex.delete(@contact)
-		redirect to('/contacts')
-	else
-		erb :error
-	end
+	@contact = Contact.get(params[:id].to_i)
+	@contact.destroy
+	redirect to('/contacts')
 end
 
 
