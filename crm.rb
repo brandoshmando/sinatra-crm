@@ -56,12 +56,8 @@ get '/contacts/new' do
 end
 #Route for displaying a particular contact
 get '/contacts/:id' do
-	@contact = @@rolodex.find_by_id(params[:id].to_i)
-	if @contact
-    erb :view_contact
-  else
-    erb :error
-  end
+	@contact = Contact.fetch(params[:id].to_i)
+	erb :view_contact
 end
 #Route to edit a particular contact
 get '/contacts/:id/edit' do
