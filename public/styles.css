@@ -48,9 +48,8 @@ td {
 	text-align: right;
 }
 
-input[type="checkbox"] {
-	
-}
+
+
 
 /* Form styling for adding a contact */
 
@@ -59,7 +58,7 @@ input[type="checkbox"] {
 	padding:1em;
 	position: relative;
 	width: 400px;
-	height: 400px;
+	height: 450px;
 	font-family: 'Josefin Slab', serif;
 	font-size:14px;
 	font-style: italic;
