@@ -56,21 +56,18 @@ get '/contacts/new' do
 end
 #Route for displaying a particular contact
 get '/contacts/:id' do
-	@contact = Contact.fetch(params[:id].to_i)
+	@contact = Contact.get(params[:id].to_i)
 	erb :view_contact
 end
 #Route to edit a particular contact
 get '/contacts/:id/edit' do
-	@contact = @@rolodex.find_by_id(params[:id].to_i)
-	if @contact
+	@contact = Contact.get(params[:id].to_i)
     erb :edit_contact
-  else
-    raise Sinatra::NotFound
   end
-end
 #Route for posting/adding a new contact to rolodex
 post '/contacts' do
-	contact = Contact.create(
+	@contact = Contact.get(params[:id])
+	@contact.update(
 		:first_name => params[:first_name],
 		:last_name => params[:last_name],
 		:email => params[:email],
@@ -78,22 +75,19 @@ post '/contacts' do
 		:personal => params[:personal],
 		:business => params[:business]
 	)
-	puts contact
 	redirect to('/contacts')
 end
 #Route to put new values to a particular contact within the rolodex
 put '/contacts/:id' do
-	@contact = @@rolodex.find_by_id(params[:id].to_i)
-	if @contact
-		@contact.first_name = params[:first_name]
-		@contact.last_name = params[:last_name]
-		@contact.email = params[:email]
-		@contact.note = params[:note]
+	@contact = Contact.get(params[:id].to_i)
+	@contact.update!(
+		:first_name => params[:first_name],
+		:last_name => params[:last_name],
+		:email => params[:email],
+		:note => params[:note]
+		)
 		redirect to('/contacts')
-	else
-		raise Sinatra::NotFound
 	end
-end
 #Route to delete a particular contact
 
 delete '/contacts/:id' do
