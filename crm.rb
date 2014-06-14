@@ -3,6 +3,9 @@
 require 'sinatra'
 require 'pry'
 require 'data_mapper'
+require 'sinatra/flash'
+
+enable :sessions
 
 DataMapper.setup(:default, 'sqlite3:database.sqlite3')
 #Creates database within Contact, 
@@ -60,12 +63,15 @@ get '/contacts/new' do
 end
 #Route to search for a particular contact
 get '/contacts/search' do
-	erb :search
+		erb :search
 end
 #Route for displaying search results
 get '/contacts/search/results' do	
 	@results = Contact.search(params[:search])
-	if @results.size == 1
+	if @results.empty?
+		redirect to('contacts/search')
+	elsif
+		@results.size == 1
 		redirect to("/contacts/#{@results[0].id}")
 	else
 		erb :results
