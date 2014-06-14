@@ -37,3 +37,17 @@ SQL
  	-INSERT INTO users(name) VALUES('KV'); (new user with name KV)
  	-UPDATE people SET iq=205 WHERE name='KV'
  	-DELETE FROM pets WHERE smelliness='high'
+
+ ORM's 
+ (Object Relational Mapping)
+
+ -Acts as an interface to the database in a program
+ -In ruby, a class representing a database table (model), attributes are database columns
+ -Provides Ruby methods instead of having to write SQL	
+
+ DATAMAPPER
+
+Adds a bunch of cool methods that do things within SQL
+
+Ex: Contact.get(10)
+Get an object with id 10
