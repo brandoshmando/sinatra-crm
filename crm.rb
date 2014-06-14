@@ -65,9 +65,7 @@ end
 #Route for displaying search results
 get '/contacts/search/results' do	
 	@results = Contact.search(params[:search])
-	if @results.empty? 
-		puts "Your search did not match any contacts beep boop..."
-	elsif @results.size == 1
+	if @results.size == 1
 		redirect to("/contacts/#{@results[0].id}")
 	else
 		erb :results
