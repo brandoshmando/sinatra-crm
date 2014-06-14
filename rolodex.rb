@@ -1,3 +1,6 @@
+#Original "Database" that was used for this project but later removed
+#for datamapper and sqlite
+
 class Rolodex
 	attr_accessor :contacts
 	def initialize
