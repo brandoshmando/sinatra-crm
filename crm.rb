@@ -3,9 +3,7 @@
 require 'sinatra'
 require 'pry'
 require 'data_mapper'
-require 'sinatra/flash'
 
-enable :sessions
 
 DataMapper.setup(:default, 'sqlite3:database.sqlite3')
 #Creates database within Contact, 
@@ -33,10 +31,10 @@ class Contact
 
 	def category_format
 		if :personal == "true" && :business == "true"
-			return "Personal/Business Aquaintance"
-		elsif :personal == "true" && :business != "true"
+			return "Personal/Business Aqpaintance"
+		elsif  :personal == "true" && :business != "true"
 			return "Personal Aquaintance"
-		elsif :personal != "true" && :personal == "true"
+		elsif :personal != "true" && :business == "true"
 			return "Business Aquaintance"
 		else
 			return "No Category Specified"
@@ -89,6 +87,7 @@ get '/contacts/:id/edit' do
   end
 #Route for posting/adding a new contact to rolodex
 post '/contacts' do
+	puts params
 	@contact = Contact.create(
 		:first_name => params[:first_name],
 		:last_name => params[:last_name],
